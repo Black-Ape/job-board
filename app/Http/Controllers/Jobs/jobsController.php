@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Jobs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Job\Job;
+use App\Models\Category\Category;
 use App\Models\Job\JobSaved;
 use App\Models\Job\Application;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,10 @@ class jobsController extends Controller
         ->where('job_id', $id)
         ->count();
 
-        return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount','saveJob', 'appliedJob'));
+        //categories
+        $categories = Category::all();
+
+        return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount','saveJob', 'appliedJob', 'categories'));
     }
 
     public function saveJob(Request $request){
@@ -83,5 +87,7 @@ class jobsController extends Controller
             }
         }
     }
+
+
 
 }
