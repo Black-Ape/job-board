@@ -114,167 +114,49 @@
     </div>
   </section>
 
+  {{-- Related jobs section --}}
   <section class="site-section" id="next">
     <div class="container">
 
       <div class="row mb-5 justify-content-center">
         <div class="col-md-7 text-center">
-          <h2 class="section-title mb-2">22,392 Related Jobs</h2>
+          <h2 class="section-title mb-2">{{ $relatedJobsCount }} Related Jobs</h2>
         </div>
       </div>
 
       <ul class="job-listings mb-5">
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_1.jpg" alt="Image" class="img-fluid">
-          </div>
 
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Product Designer</h2>
-              <strong>Adidas</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> New York, New York
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-danger">Part Time</span>
-            </div>
-          </div>
+        @foreach ( $relatedJobs as $job )
+            <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
 
-        </li>
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_2.jpg" alt="Image" class="img-fluid">
-          </div>
+                <a href="{{ route('single.job', $job->id)}}"></a>
+                <div class="job-listing-logo">
+                <img src="{{ asset('assets/images/'.$job->image.'')}}" alt="Image" class="img-fluid">
+                </div>
 
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Digital Marketing Director</h2>
-              <strong>Sprint</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> Overland Park, Kansas
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-success">Full Time</span>
-            </div>
-          </div>
-        </li>
+                <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+                <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+                    <h2>{{ $job->job_title }}</h2>
+                    <strong>{{ $job->company }}</strong>
+                </div>
+                <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+                    <span class="icon-room"></span> {{ $job->job_region }}
+                </div>
+                <div class="job-listing-meta">
+                    <span class="badge badge-danger">{{ $job->job_type }}</span>
+                </div>
+                </div>
 
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_3.jpg" alt="Image" class="img-fluid">
-          </div>
-
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Back-end Engineer (Python)</h2>
-              <strong>Amazon</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> Overland Park, Kansas
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-success">Full Time</span>
-            </div>
-          </div>
-        </li>
-
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_4.jpg" alt="Image" class="img-fluid">
-          </div>
-
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Senior Art Director</h2>
-              <strong>Microsoft</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> Anywhere
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-success">Full Time</span>
-            </div>
-          </div>
-        </li>
-
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_5.jpg" alt="Image" class="img-fluid">
-          </div>
-
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Product Designer</h2>
-              <strong>Puma</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> San Mateo, CA
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-success">Full Time</span>
-            </div>
-          </div>
-        </li>
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_1.jpg" alt="Image" class="img-fluid">
-          </div>
-
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Product Designer</h2>
-              <strong>Adidas</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> New York, New York
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-danger">Part Time</span>
-            </div>
-          </div>
-
-        </li>
-        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="job-single.html"></a>
-          <div class="job-listing-logo">
-            <img src="images/job_logo_2.jpg" alt="Image" class="img-fluid">
-          </div>
-
-          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-              <h2>Digital Marketing Director</h2>
-              <strong>Sprint</strong>
-            </div>
-            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-              <span class="icon-room"></span> Overland Park, Kansas
-            </div>
-            <div class="job-listing-meta">
-              <span class="badge badge-success">Full Time</span>
-            </div>
-          </div>
-        </li>
-
-
-
+            </li>
+        @endforeach
 
       </ul>
-
-
 
     </div>
   </section>
 
 
-  <section class="bg-light pt-5 testimony-full">
+  {{-- <section class="bg-light pt-5 testimony-full">
 
       <div class="owl-carousel single-carousel">
 
@@ -327,6 +209,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
 @endsection
