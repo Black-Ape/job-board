@@ -9,7 +9,7 @@ use App\Models\Job\Application;
 use App\Models\Job\JobSaved;
 
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\File;
 class UsersController extends Controller
 {
     //
@@ -57,4 +57,35 @@ class UsersController extends Controller
         }
 
     }
+
+    public function editCV(){
+
+        return view('users.editcv');
+    }
+
+    public function updateCV(Request $request){
+
+        $oldCV = User::find(Auth::user()->id);
+
+        if(File::exists(public_path('assets/cvs/' . $oldCV->cv)))
+        {
+            File::delete(public_path('assets/cvs/'. $oldCV->cv));
+        }
+        else{
+
+        }
+
+        $destinationPath = 'assets/cvs/';
+        $mycv = $request -> cv->getClientOriginalName();
+        $request->cv->move(public_path($destinationPath), $mycv);
+
+        $oldCV->update([
+
+            "cv" =>$mycv
+        ]);
+
+        return redirect('/users/profile/')->with('update', 'CV Updated Successfully!');
+    }
+
+
 }

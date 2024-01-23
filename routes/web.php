@@ -36,3 +36,7 @@ Route::get('/users/savedjobs', [App\Http\Controllers\Users\usersController::clas
 
 Route::get('/users/edit-details', [App\Http\Controllers\Users\usersController::class, 'editDetails'])->name('edit.details');
 Route::post('/users/edit-details', [App\Http\Controllers\Users\usersController::class, 'updateDetails'])->name('update.details');
+
+
+Route::get('/users/edit-cv', [App\Http\Controllers\Users\usersController::class, 'editCV'])->name('edit.cv');
+Route::post('/users/edit-cv', [App\Http\Controllers\Users\usersController::class, 'updateCV'])->name('update.cv');

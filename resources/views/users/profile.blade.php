@@ -8,6 +8,15 @@
             <div class="col-md-7">
             <div class="card p-3 py-4">
 
+                <div class="container">
+                    {{-- display message for the user  --}}
+                      @if(\Session::has('update'))
+                          <div class="alert alert-success">
+                              <p>{!! \Session::get('update') !!}</p>
+                          </div>
+                      @endif
+                  </div>
+
                     <div class="text-center">
                         <img src="{{ asset('assets/images_user/'.$profile->image.'') }}" width="100" class="rounded-circle">
                     </div>
