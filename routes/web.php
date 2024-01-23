@@ -33,3 +33,5 @@ Route::get('/categories/single/{name}', [App\Http\Controllers\Categories\categor
 Route::get('/users/profile', [App\Http\Controllers\Users\usersController::class, 'profile'])->name('profile');
 Route::get('/users/applications', [App\Http\Controllers\Users\usersController::class, 'applications'])->name('applications');
 Route::get('/users/savedjobs', [App\Http\Controllers\Users\usersController::class, 'savedJobs'])->name('saved.jobs');
+
+Route::get('/users/edit-details', [App\Http\Controllers\Users\usersController::class, 'editDetails'])->name('edit.details');
