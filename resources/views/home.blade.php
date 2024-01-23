@@ -31,33 +31,39 @@
             <h1 class="text-white font-weight-bold">The Easiest Way To Get Your Dream Job</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est, consequuntur perferendis.</p>
           </div>
-          <form method="post" class="search-jobs-form">
+
+          <form method="post" action="{{ route('search.job') }}"  class="search-jobs-form">
+            @csrf
             <div class="row mb-5">
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <input type="text" class="form-control form-control-lg" placeholder="Job title, Company...">
+                <input name="job_title" type="text" class="form-control form-control-lg" placeholder="Job title">
               </div>
+
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
+                <select name="job_region" class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Region">
                   <option>Anywhere</option>
-                  <option>San Francisco</option>
-                  <option>Palo Alto</option>
-                  <option>New York</option>
-                  <option>Manhattan</option>
-                  <option>Ontario</option>
-                  <option>Toronto</option>
-                  <option>Kansas</option>
-                  <option>Mountain View</option>
+                  <option>Durban</option>
+                  <option>Pretoria</option>
+                  <option>Richards bay</option>
+                  <option>Vryhead</option>
+                  <option>Newcastle</option>
+                  <option>Ulundi</option>
+                  <option>Hluhluwe</option>
+                  <option>Port Shepston</option>
                 </select>
               </div>
+
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <select class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
+                <select name="job_type" class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Select Job Type">
                   <option>Part Time</option>
                   <option>Full Time</option>
                 </select>
               </div>
+
               <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>Search Job</button>
+                <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>Search Job</button>
               </div>
+
             </div>
             <div class="row">
               <div class="col-md-12 popular-keywords">
@@ -69,6 +75,7 @@
                 </ul>
               </div>
             </div>
+
           </form>
         </div>
       </div>

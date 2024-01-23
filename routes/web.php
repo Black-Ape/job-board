@@ -15,20 +15,22 @@ use App\Http\Controllers\Jobs\jobsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('/about', [App\Http\Controllers\Jobs\jobsController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\Jobs\jobsController::class, 'contact'])->name('contact');
 
 Route::group(['prefix' => 'jobs'], function () {
     Route::get('single/{id}', [App\Http\Controllers\Jobs\jobsController::class, 'single'])->name('single.job');
     Route::post('save', [App\Http\Controllers\Jobs\jobsController::class, 'saveJob'])->name('save.job');
     Route::post('apply', [App\Http\Controllers\Jobs\jobsController::class, 'jobApply'])->name('apply.job');
+    Route::any('search', [App\Http\Controllers\Jobs\jobsController::class, 'search'])->name('search.job');
 });
 
 Route::group(['prefix' => 'categories'], function () {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Job\job;
 
@@ -31,13 +32,4 @@ class HomeController extends Controller
         return view('home', compact('jobs', 'totalJobs'));
     }
 
-    public function about()
-    {
-        return view('pages.about');
-    }
-
-    public function contact()
-    {
-        return view('pages.contact');
-    }
 }
