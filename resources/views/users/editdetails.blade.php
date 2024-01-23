@@ -17,6 +17,15 @@
     </div>
   </section>
 
+  <div class="container">
+    {{-- display message for the user  --}}
+      @if(\Session::has('update'))
+          <div class="alert alert-success">
+              <p>{!! \Session::get('update') !!}</p>
+          </div>
+      @endif
+  </div>
+
 
   <section class="site-section">
     <div class="container">
@@ -33,9 +42,9 @@
       </div>
       <div class="row mb-5">
         <div class="col-lg-12">
-          <form class="p-4 p-md-5 border rounded" action="post-job.php" method="post">
+          <form class="p-4 p-md-5 border rounded" action="{{ route('update.details') }}" method="post">
 
-            <!--job details-->
+            @csrf
 
             <div class="form-group">
               <label for="job-title">Name</label>
@@ -43,7 +52,7 @@
             </div>
 
             <div class="form-group">
-                <label for="job-title">Job <Title></Title></label>
+                <label for="job-title">Job Title</label>
                 <input type="text" value="{{ $userDetails->job_title }}" name="job_title" class="form-control" id="job-title" placeholder="Job Title">
             </div>
 
@@ -54,6 +63,21 @@
                     {{ $userDetails->bio }}
                   </textarea>
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <input type="text" value="{{ $userDetails->facebook }}" name="facebook" class="form-control" id="facebook" placeholder="Facebook">
+            </div>
+
+            <div class="form-group">
+                <label for="twitter">Twitter</label>
+                <input type="text" value="{{ $userDetails->twitter }}" name="twitter" class="form-control" id="twitter" placeholder="Twitter">
+            </div>
+
+            <div class="form-group">
+                <label for="linkedin">JLinkedin</label>
+                <input type="text" value="{{ $userDetails->linkedin }}" name="linkedin" class="form-control" id="linkedin" placeholder="Linkedin">
             </div>
 
 
