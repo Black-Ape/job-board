@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 // use App\Models\Admin;
 use App\Models\Admin\Admin as Admin;
 use App\Models\Category\Category;
-use App\Models\Job\Application;
 use App\Models\Job\Job;
+use App\Models\Job\Application;
+
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends Controller
 {
@@ -108,7 +110,31 @@ class AdminsController extends Controller
     }
 
 
+    public function editCategories($id){
 
+        $category = Category::find($id);
+
+        return view("admins.edit-categories", compact('category'));
+    }
+
+
+
+    public function updateCategories(Request $request, $id){
+
+        Request()->validate([
+            "name" =>'required|max:40',
+        ]);
+
+
+        $categoryUpdate = Category::find($id);
+        $categoryUpdate->update([
+            "name" => $request->name,
+        ]);
+
+        if($categoryUpdate){
+            return redirect('/admin/display-categories/')->with('update', 'Category Updated Successfully!');
+        }
+    }
 
 }
 
