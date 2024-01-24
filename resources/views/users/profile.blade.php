@@ -15,7 +15,7 @@
                               <p>{!! \Session::get('update') !!}</p>
                           </div>
                       @endif
-                  </div>
+                    </div>
 
                     <div class="text-center">
                         <img src="{{ asset('assets/images_user/'.$profile->image.'') }}" width="100" class="rounded-circle">
