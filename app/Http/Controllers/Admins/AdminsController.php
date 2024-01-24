@@ -235,7 +235,14 @@ class AdminsController extends Controller
      }
 
 
+     //apps
+     public function displayApps(){
 
+        $apps = Application::all();
+
+        return view('admins.all-apps', compact('apps'));
+
+     }
 
 }
 
